@@ -235,6 +235,35 @@ namespace RestaurantApi.Controllers
             }
         }
 
+
+        //CustomControllers
+
+        [HttpGet("GetDeliveryDetailsByDEliveryStatus/{status}")]
+        public IActionResult GetDeliveryDetailsByDEliveryStatus([FromRoute] int status)
+        {
+            try
+            {
+                return Ok(logic.GetVisitDetailandOrderDetailsByDeliveryStatus(status));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("CheckVisitStatusChanges")]
+        public IActionResult CheckVisitStatusChanges()
+        {
+            try
+            {
+                return Ok(logic.CheckVisitStatusChanges());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }
 

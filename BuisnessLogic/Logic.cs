@@ -212,8 +212,25 @@ namespace BuisnessLogic
             }
         }
 
+        public IEnumerable<DeliveriesModel> GetVisitDetailandOrderDetailsByDeliveryStatus(int status)
+        {
+            List<VisitDetail> visitDetails = repo.GetVisitDetailsByDeliveryStatus(status).ToList();
+            List<DeliveriesModel> deliveries = new List<DeliveriesModel>();
+            foreach (VisitDetail visit in visitDetails)
+            {
+                //IEnumerable<OrderDishModel> orderDetailModels = GetOrderDishByVisitId(visit.VisitId);
+                deliveries.Add(Mapper.CombineVisitDetailsWithOrderDish(Mapper.DbVisitToModel(visit), GetOrderDishByVisitId(visit.VisitId)));
+
+            }
+
+            return deliveries;
+        }
 
 
+        public int CheckVisitStatusChanges()
+        {
+            return repo.CheckVisitStatusChanges();
+        }
     }
 }
 

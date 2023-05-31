@@ -254,6 +254,16 @@ namespace Entities
             return customerDetail;
         }
 
+        public IEnumerable<VisitDetail> GetVisitDetailsByDeliveryStatus(int status)
+        {
+            return context.VisitDetails.Where(x => x.DeliveryStatus == status);
+        }
+
+        public int CheckVisitStatusChanges()
+        {
+            return context.VisitDetails.Where(x => x.DeliveryStatus == 1).Count();
+        }
+
 
     }
 }

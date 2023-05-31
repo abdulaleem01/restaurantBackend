@@ -51,6 +51,8 @@ namespace BuisnessLogic
         public IEnumerable<VisitDetailModel> GetAllVisitDetailsByCustomerId(int id);
 
         public int ChangePassword(string email, string oldpass, string newpass);
+        public IEnumerable<DeliveriesModel> GetVisitDetailandOrderDetailsByDeliveryStatus(int status);
+        public int CheckVisitStatusChanges();
 
     }
 }

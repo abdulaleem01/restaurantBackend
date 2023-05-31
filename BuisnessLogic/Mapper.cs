@@ -211,6 +211,22 @@ namespace BuisnessLogic
 
             return orderDishModel;
         }
+
+
+        public DeliveriesModel CombineVisitDetailsWithOrderDish(VisitDetailModel visit, IEnumerable<OrderDishModel> orderDishModels)
+        {
+            DeliveriesModel deliveriesModel = new DeliveriesModel()
+            {
+                VisitId = visit.VisitId,
+                CustomerId = visit.CustomerId,
+                TableId = visit.TableId,
+                Date = visit.Date,
+                Time = visit.Time,
+                orderDishModelsList = orderDishModels
+            };
+
+            return deliveriesModel;
+        }
     }
 }
 

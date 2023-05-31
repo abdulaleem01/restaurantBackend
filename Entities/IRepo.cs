@@ -52,6 +52,9 @@ namespace Entities
         public IEnumerable<DishesInfo> GetDishInfoByVisitId(int VisitId);
         public IEnumerable<VisitDetail> GetAllVisitDetailsByCustomerId(int id);
         public CustomerDetail ChangePassword(string email);
+        public IEnumerable<VisitDetail> GetVisitDetailsByDeliveryStatus(int status);
+
+        public int CheckVisitStatusChanges();
 
 
 
