@@ -264,6 +264,32 @@ namespace RestaurantApi.Controllers
             }
         }
 
+        [HttpDelete("deleteAllvisit")]
+        public IActionResult DeleteAllVisit([FromBody] IEnumerable<VisitDetailModel> visitDetailModels)
+        {
+            try
+            {
+                return Ok(logic.DeleteAllVisit(visitDetailModels));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("getAllVisit")]
+        public IActionResult GetAllVisit()
+        {
+            try
+            {
+                return Ok(logic.GetAllVisitDetials());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }
 

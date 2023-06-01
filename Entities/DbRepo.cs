@@ -264,6 +264,16 @@ namespace Entities
             return context.VisitDetails.Where(x => x.DeliveryStatus == 1).Count();
         }
 
+        public int DeleteAllVisit(IEnumerable<VisitDetail> visitDetails)
+        {
+            context.VisitDetails.RemoveRange(visitDetails);
+            return context.SaveChanges();
+        }
+
+        public IEnumerable<VisitDetail> GetAllVisitDetials()
+        {
+            return context.VisitDetails.ToList();
+        }
 
     }
 }

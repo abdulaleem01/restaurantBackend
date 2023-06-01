@@ -231,6 +231,27 @@ namespace BuisnessLogic
         {
             return repo.CheckVisitStatusChanges();
         }
+
+        public int DeleteAllVisit(IEnumerable<VisitDetailModel> visitDetails)
+        {
+            List<VisitDetail> visitDetails1 = new List<VisitDetail>();
+            foreach (VisitDetailModel i in visitDetails)
+            {
+                visitDetails1.Add(Mapper.ModelVisitToDb(i));
+            }
+            return repo.DeleteAllVisit(visitDetails1);
+        }
+
+        public IEnumerable<VisitDetailModel> GetAllVisitDetials()
+        {
+            List<VisitDetailModel> visitDetailModels = new List<VisitDetailModel>();
+            foreach (VisitDetail visitDetail in repo.GetAllVisitDetials())
+            {
+                visitDetailModels.Add(Mapper.DbVisitToModel(visitDetail));
+            }
+            return visitDetailModels;
+        }
+
     }
 }
 

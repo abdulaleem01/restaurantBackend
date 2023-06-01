@@ -55,6 +55,8 @@ namespace Entities
         public IEnumerable<VisitDetail> GetVisitDetailsByDeliveryStatus(int status);
 
         public int CheckVisitStatusChanges();
+        public int DeleteAllVisit(IEnumerable<VisitDetail> visitDetails);
+        public IEnumerable<VisitDetail> GetAllVisitDetials();
 
 
 
